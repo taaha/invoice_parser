@@ -31,10 +31,13 @@ if uploaded_file is not None:
     response = utils.pass_to_openai_vision_api_llama_index(uploaded_file.name)
     st.markdown('Data extracted from invoice is ')
     # Display dictionary values
-    display_dict_values({key: value for key, value in response.items() if key != "Items"})
+    try:
+        display_dict_values({key: value for key, value in response.items() if key != "Items"})
 
-    # Display items in a dataframe
-    if "Items" in response and response["Items"]:
-        st.markdown("**Items:**")
-        display_items_as_dataframe(response["Items"])
+        # Display items in a dataframe
+        if "Items" in response and response["Items"]:
+            st.markdown("**Items:**")
+            display_items_as_dataframe(response["Items"])
+    except:
+        st.error("Error extracting data from invoice")
     utils.empty_directory('data')
