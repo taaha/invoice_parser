@@ -1,0 +1,8 @@
+streamlit
+openai
+python-dotenv
+pandas
+llama-index
+llama-index-multi-modal-llms-openai
+llama-index-llms-openai
+trulens-eval
