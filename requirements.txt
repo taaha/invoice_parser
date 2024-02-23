@@ -1,4 +1,5 @@
 streamlit
+psutil
 openai
 python-dotenv
 pandas
